@@ -1,0 +1,65 @@
+.hamburger-btn{
+  /* height: 50px;
+  background-color: #7b1fa2;
+  display: flex;
+  justify-content: center;
+  align-items: center; */
+  grid-area: hamburger-btn;
+  justify-self: end;
+
+  @include desktop {
+    display: none;
+  }
+  
+  @include desktopHd {
+    display: none;
+  }
+}
+.hamburger-btn__item {
+  display: flex;
+  width: 35px;
+  height: 35px;
+  background-color: transparent;
+  position: relative;
+}
+
+.hamburger-btn__item span,
+.hamburger-btn__item span::before,
+.hamburger-btn__item span::after {
+  position: absolute;
+  top: 50%;
+  margin-top: -3px;
+  left: 50%;
+  margin-left: -15px;
+  width: 30px;
+  height: 6px;
+  background-color: $text-color;
+  border-radius: 2px;
+}
+
+.hamburger-btn__item span::before,
+.hamburger-btn__item span::after {
+  content: '';
+  display: block;
+  transition: .3s;
+}
+
+.hamburger-btn__item span::before {
+  transform: translateY(-10px);
+}
+
+.hamburger-btn__item span::after {
+  transform: translateY(10px);
+}
+
+.hamburger-btn__item--active span {
+  height: 0;
+}
+
+.hamburger-btn__item--active span::before {
+  transform: rotate(-45deg);
+}
+
+.hamburger-btn__item--active span::after {
+  transform: rotate(45deg);
+}

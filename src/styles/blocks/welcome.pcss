@@ -1,0 +1,52 @@
+.welcome {
+  height: 100vh;
+
+  @include phones {
+    margin-bottom: 20px;
+  }
+
+  @include tablets {
+    margin-bottom: 70px;
+  }
+
+  @include desktop {
+    margin-bottom: 0px;
+  }
+}
+
+.welcome__container {
+  height: inherit;
+  grid-template-columns: 1fr;
+  grid-template-areas: 
+    'header'
+    'content';
+  justify-items: center;
+  text-align: center;
+
+  @include phones {
+    grid-template-rows: 25% 35% 40%;
+  }
+
+  @include tablets {
+    grid-template-rows: 15% 45% 40%;
+  }
+
+  @include desktop {
+    grid-template-rows: 15% 75% 10%;
+  }
+
+  @include desktopHd {
+    grid-template-rows: 15% 55% 20%;
+    align-items: end;
+  }
+}
+
+.welcome__content {
+  grid-area: content;
+  display: flex;
+  align-items: center;
+
+  /* @include desktopHd {
+    align-self: flex-end;
+  } */
+}

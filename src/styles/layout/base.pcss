@@ -5,6 +5,10 @@ html {
   @include tablets {
     font-size: 14px;
   }
+
+  @include phones {
+    font-size: 14px;
+  }
 }
 body,
 html {
@@ -26,25 +30,41 @@ body {
   position: relative;
 }
 
+.section {
+  /* height: 100vh; */
+  /* min-height: 650px; */
+}
+
 .container {
   margin: 0 auto;
   max-width: 1480px;
-  width: 95%;
+  display: grid;
   // width: 1490px;
+  opacity: .99;
+
 
   @include phones {
     width: 85%;
   }
-}
 
-.fullscreen-section {
-  height: 100vh;
-  min-height: 650px;
+  @include tablets {
+    width: 90%;
+  }
+
+  @include desktop {
+    width: 95%;
+  }
+
+  @include desktopHd {
+    max-width: 1800px;
+    width: 85%;
+  }
 }
 
 button {
   border: 0;
   cursor: pointer;
+  padding: 0;
 }
 
 * {
@@ -65,9 +85,11 @@ h5,
 h6 {
   font-weight: normal;
   margin: 0;
+  padding: 0;
 }
 
-p {
+p,
+blockquote {
   margin: 0;
   padding: 0;
 }
@@ -80,6 +102,7 @@ button[type="button"] {
 a {
   color: inherit;
   cursor: pointer;
+  text-decoration: none;
 }
 
 img {

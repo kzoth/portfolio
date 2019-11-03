@@ -1,0 +1,28 @@
+.lang {
+  
+  @include phones {
+    display: none;
+  }
+
+  @include tablets {
+    display: none;
+  }
+
+  @include desktop {
+    display: block;
+    justify-self: end;
+  }
+}
+
+.lang__btn {
+  width: 50px;
+  height: 50px;
+  background: svg-load('lang.svg', fill=$text-color);
+  transition: 0.3s;
+  transform: scale(1);
+
+  &:hover {
+    background: svg-load('lang.svg', fill=$main-color);
+    transform: scale(1.1);
+  }
+}

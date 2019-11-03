@@ -1,7 +1,62 @@
-mixin icon(name, className)
-  - var icon = require(`images/icons/${name}.svg`);
-  svg(class=className viewBox=icon.viewBox preserveAspectRatio="none")
+mixin icon(item, className)
+  - var icon = require(`images/icons/${item}.svg`);
+  svg(class=`${className}__icon` viewBox=icon.viewBox preserveAspectRatio="none")
     use(xlink:href=icon.url)
 
 mixin image(path, className)
   img(src=require(`images/${path}`) class=className)
+
+mixin nav(className, items, activeItem, modify)
+  nav(class=`${className}` + ((modify) ? ` ${className}${modify}` : ''))
+    ul(class=`${className}__list`)
+      each  item, index in items
+        li(class=`${className}__item` + ((index == activeItem) ? ` ${className}__item--active` : ''))
+          a(class=`${className}__link`, href='#')= item
+
+mixin socials(className, items, modify)
+  div(class=`${className}` + ((modify) ? ` ${className}${modify}` : ''))
+    ul(class=`${className}__list`)
+      each item in items
+        li(class=`${className}__item`)
+          a(class=`${className}__item-wrapper`, href='#')
+            +icon(item, className)
+
+mixin userCard(className, path, keys, values)
+  div(class=`${className}`)
+    div(class=`${className}__pic-wrapper`)
+      img(src=require(`images/${path}`) class=`${className}__pic`)
+    div(class=`${className}__disc`)
+      ul(class=`${className}__keys-list`)
+        each key in keys
+          li(class=`${className}__keys-item`)= key
+      ul(class=`${className}__values-list`)
+        each value in values
+          li(class=`${className}__values-item`)= value
+
+mixin userLegend(className, suptitle, title, disc, subDisc)
+  div(class=`${className}`)
+    div(class=`title title--${className}`)
+      h3(class=`title__item title__item--${className}-suptitle`)= suptitle
+      h2(class=`title__item title__item--${className}-title`)= title
+    div(class=`${className}__disc`)
+      p= disc
+    div(class=`${className}__subdisc`)
+      p= subDisc
+
+mixin skillScales(className, obj)
+  div(class=`${className}`)
+    ul(class=`${className}__list`)
+      each item in obj
+        li(class=`${className}__item`)
+          h3(class=`${className}__title`)= item.title
+          ul(class=`${className}__sublist`)
+            each value, key in item.skills
+              li(class=`${className}__elem`)
+                svg(class="circular-icon" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg")
+                  linearGradient(id="linear-gradient" x1="0" x2="0" y1="0" y2="1")
+                    stop(offset="0%" stop-color="#9300e8")
+                    stop(offset="100%" stop-color="#4a00ed")
+                  path(class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831")
+                  path(class="circle" stroke-dasharray=`${value}, 100` d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831")
+                  text(class="inner-text" x="18" y="19")= key
+                
