@@ -1,0 +1,154 @@
+.footer {
+  background-color: #252830;
+  min-height: 370px;
+  display: flex;
+  align-items: center;
+
+  @include phones {
+    min-height: auto;
+    padding: 50px 0px;
+  }
+
+  @include desktop {
+    padding: 50px 0px;
+  }
+}
+
+.footer__container {
+  display: flex;
+
+  @include phones {
+    flex-direction: column;
+  }
+
+  @include tablets {
+    flex-direction: row;
+  }
+}
+
+.footer__column--left {
+  flex: 1.5;
+
+  @include phones {
+    margin-bottom: 45px;
+  }
+
+  @include tablets {
+    margin-bottom: 0px;
+  }
+
+  @include desktopHd {
+    display: flex;
+  }
+}
+
+.footer__year {
+  opacity: 0.1;
+  font-size: 48px;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 30px;
+
+  @include phones {
+    font-size: 52px;
+    margin-bottom: 15px;
+  }
+  
+  @include desktopHd {
+    margin-bottom: 0px;
+    margin-right: 70px;
+  }
+}
+
+.footer__column--right {
+  flex: 2;
+
+  @include desktop {
+    flex: 2.8;
+  }
+}
+
+.footer__content {
+  display: flex;
+  margin-top: 70px;
+
+  @include phones {
+    flex-direction: column;
+    margin-top: 40px;
+  }
+
+  @include desktop {
+    flex-direction: row;
+    margin-top: 40px;
+  }
+
+}
+
+.footer__socials {
+
+  @include phones {
+    margin-bottom: 30px;
+  }
+
+  @include desktop {
+    margin-bottom: 0px;
+    margin-right: 30px;
+  }
+
+  @include desktopHd {
+    margin-right: 200px;
+    width: 35%;
+  }
+}
+
+.footer__disc,
+.blockquote__text {
+  opacity: 0.3;
+  font-size: 16px;
+  color: #fff;
+  margin-bottom: 45px;
+  margin-right: 55px;
+  
+  @include desktopHd {
+    font-size: 18px;
+  }
+}
+
+.footer__disc {
+  
+  @include phones {
+    line-height: 1.71;
+    margin-bottom: 30px;
+  }
+}
+
+.footer__blockquote {
+  width: 95%;
+
+  @include desktopHd {
+    width: 40%;
+  }
+}
+
+.blockquote__text {
+
+  @include phones {
+    line-height: 1.71;
+    margin-right: 0px;
+    margin-bottom: 20px;
+  }
+
+  @include desktopHd {
+    margin-bottom: 30px;
+  }
+}
+
+.blockquote__author {
+  font-size: 16px;
+  font-style: italic;
+  color: #fff;
+
+  @include desktopHd {
+    font-size: 18px;
+  }
+}

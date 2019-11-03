@@ -1,0 +1,28 @@
+.header {
+  padding-top: 3%;
+  width: 100%;
+  /* display: flex; */
+  /* justify-content: space-between; */
+  display: grid;
+  grid-area: header;
+  align-items: center;
+
+  @include phones {
+    grid-template:
+    'logo hamburger-btn' 1fr 
+    / 1fr 1fr;
+  }
+
+  @include tablets {
+    grid-template:
+    'logo socials hamburger-btn' 1fr 
+    / 1fr 1.5fr 0.5fr;
+
+  }
+
+  @include desktop {
+    grid-template:
+    'logo nav socials lang' 1fr 
+    / 0.3fr 1.5fr 0.5fr 0.2fr;
+  }
+}

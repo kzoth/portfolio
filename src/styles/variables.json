@@ -1,8 +1,11 @@
 {
+  "skills-gradient": "#linear-gradient",
   "text-color": "#414c63",
-  "links-color": "#4b6fd7",
+  "main-color": "#5500f2",
+  "href-color": "#4b6fd7",
+  "footer-color": "#1f232d",
   "bp-desktop-hd": "1800px",
   "bp-desktop": "1200px",
   "bp-tablets": "768px",
-  "bp-phones": "480px"
+  "bp-phones": "320px"
 }

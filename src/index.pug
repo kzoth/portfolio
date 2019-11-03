@@ -1,15 +1,259 @@
 include ./mixins.pug
 
 <!DOCTYPE html>
-html(lang="en")
+html(lang="ru")
   head
     meta(charset="UTF-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     meta(http-equiv="X-UA-Compatible", content="ie=edge")
-    title Portfolio | main page
+    title Portfolio | main page54545
   body
     .wrapper
       .maincontent
-        +image('content/user.jpg', 'user-pic')
-        +icon('link', 'link-class')
-        .icon-bg
+
+        .section-wrapper.section-wrapper--welcome-about
+          section.parallax
+            .parallax__layer(data-speed='0')
+              img.parallax__img(src=require('images/parallax/sky.jpg'))
+            .parallax__layer(data-speed='8')
+              img.parallax__img(src=require('images/parallax/mountain.png'))
+            .parallax__layer(data-speed='15')
+              img.parallax__img(src=require('images/parallax/baloon.png'))
+            .parallax__layer(data-speed='13')
+              img.parallax__img(src=require('images/parallax/clouds1.png'))
+            .parallax__layer(data-speed='15')
+              img.parallax__img(src=require('images/parallax/man.png'))
+            .parallax__layer(data-speed='20')
+              img.parallax__img(src=require('images/parallax/mountain1.png'))
+            .parallax__layer
+              img.parallax__img(src=require('images/parallax/clouds.png'))
+
+          section.section.welcome
+            .container.welcome__container
+              header.header
+
+                .logo
+                  +icon('logo', 'logo')
+
+                +nav('nav', ['Главная', 'Обо мне', 'Навыки', 'Работы', 'Отзывы', 'Связаться'], 0, '--header')
+                      
+                +socials('socials', ['telegram', 'whatsapp', 'github'], '--header')
+                //- +socials(
+                //-   'socials',
+                //-   [
+                //-     {
+                //-       title: 'telegram',
+                //-       link: 'https://t.me/kzoght'
+                //-     },{
+                //-       title: 'whatsapp',
+                //-       link: 'https://wapp.click/79826438979'
+                //-     },{
+                //-       title: 'github',
+                //-       link: 'https://github.com/kzoth'
+                //-     }                  
+                //-   ]
+                //- )
+
+                .lang
+                  button.lang__btn
+
+                .hamburger-btn
+                  button.hamburger-btn__item
+                    span
+                  
+              .welcome__content
+                .title.title--welcome
+                  h2.title__item.title__item--welcome-suptitle Личный сайт<br>веб разработчика
+                  h1.title__item.title__item--welcome-title Егор Казуров
+
+              .scroll.bounce
+                span.scroll__text Скролл
+                +icon('scroll', 'scroll')
+
+          section.section.about
+            .container.about__container
+              
+              +userCard(
+                'user',
+                'content/user.jpg',
+                ['Проживаю:', 'Возраст:', 'Родился:'],
+                ['Санкт-Петербург', '27 лет', '6 июля 1992 года']
+              )
+              +userLegend(
+                'legend',
+                'Привет, меня зовут',
+                'Егор Казуров',
+                'Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.',
+                'Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!'
+              )
+
+        .section-wrapper.section-wrapper--skills-works
+
+          section.section.skills
+            .triangles.triangles--top
+              svg.triangles__item.triangles__item--top(viewBox="0 0 1000 100" preserveAspectRatio="none")
+                polygon(points="0,0 0,100 1000,100")
+              svg.triangles__item.triangles__item--top(viewBox="0 0 1000 100" preserveAspectRatio="none")
+                polygon(points="0,100 1000,100 1000,0")
+
+            .container.skills--container
+              .skills__content
+                .title.title--skills
+                  h2.title__item.title__item--skills-title Чем я могу быть полезен вам
+
+                .skills__disc
+                  p Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
+              
+              #skill-scales-component
+
+              .skills__img-wrapper
+                +image('content/backpack.png', 'skills__img')
+
+          section.section.works
+            .container.works--container
+                
+              .title.title--works
+                h2.title__item.title__item--works-title Мои работы
+              
+              #slider-component
+
+            .triangles.triangles--bottom
+              svg.triangles__item.triangles__item--bottom(viewBox="0 0 1000 100" preserveAspectRatio="none")
+                polygon(points="0,0 500,100 1000,0")
+                
+        .section-wrapper.section-wrapper--comments-contacts
+          section.section.comments           
+            .container.comments--container
+              .comments__content-wrapper#comments
+                .comments__content
+                  
+                  .title.title--comments
+                    h2.title__item.title__item--comments-title Что обо мне говорят
+
+                  .slideshow__controls
+                    button.slideshow__btn.slideshow__btn--arrow-left(@click="previous()" ref="prev")
+                    button.slideshow__btn.slideshow__btn--arrow-right(@click="next()" ref="next")
+
+                .slideshow-wrapper
+                  .slideshow
+
+                    flickity.slideshow__list(ref="flickity" :options="flickityOptions")
+                      .slideshow__card
+                        .card__disc
+                          blockquote Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!
+
+                        .card__avatar
+                          .card__img-wrapper
+                            +image('content/slideshow/1a.png', 'card__img-elem')
+                          
+                          .card__title-wrapper
+                            span.card__title Ковальчук Дмитрий
+
+                            span.card__subtitle Основатель Loftschool
+
+
+                      .slideshow__card
+                        .card__disc
+                          blockquote Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах
+
+                        .card__avatar
+                          .card__img-wrapper
+                            +image('content/slideshow/2a.png', 'card__img-elem')
+                            
+                          .card__title-wrapper
+                            span.card__title Владимир Сабанцев
+
+                            span.card__subtitle Преподаватель
+
+                      .slideshow__card
+                        .card__disc
+                          blockquote Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!
+
+                        .card__avatar
+                          .card__img-wrapper
+                            +image('content/slideshow/1a.png', 'card__img-elem')
+                          
+                          .card__title-wrapper
+                            span.card__title Ковальчук Дмитрий
+
+                            span.card__subtitle Основатель Loftschool
+
+                      .slideshow__card
+                        .card__disc
+                          blockquote Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!
+
+                        .card__avatar
+                          .card__img-wrapper
+                            +image('content/slideshow/1a.png', 'card__img-elem')
+                          
+                          .card__title-wrapper
+                            span.card__title Ковальчук Дмитрий
+
+                            span.card__subtitle Основатель Loftschool
+
+                        
+
+
+          section.section.contacts           
+            .container.contacts__container
+                
+              .title.title--contacts
+                h2.title__item.title__item--contacts-title Связаться со мной
+
+              .form
+                form.form__item
+                  .form__column
+                    .form__row
+                      label.form__elem
+                        .form__title  Введите ваше имя
+                        .form__input-wrapper
+                          .form__icon-wrapper 
+                            +icon('user', 'form')
+                          input(type='text', class='form__input form__input--required', name='name', required, placeholder='Введите ваше имя')
+
+                      label.form__elem
+                        .form__title  Введите ваш email
+                        .form__input-wrapper
+                          .form__icon-wrapper 
+                            +icon('envelope', 'form')
+                          input(type='text', class='form__input form__input--required', name='email', required, placeholder='Введите ваш email')
+
+                    .form__row
+                      label.form__elem
+                        .form__title  Сообщение к письму
+                        .form__input-wrapper 
+                          .form__icon-wrapper 
+                            +icon('message', 'form')
+                          textarea(class='form__input form__input--textarea', name="message", required, placeholder='Сообщение к письму')
+                    
+                    .form__row
+                      button(type='submit', class='btn btn--submit')  Отправить
+
+        footer.footer
+          .container.footer__container
+            .footer__column--left
+              .footer__year © 2019
+
+              .title.title--footer
+                h1.title__item.title__item--footer-title Егор Казуров
+                h2.title__item.title__item--footer-subtitle Личный сайт<br>веб разработчика
+
+            .footer__column--right
+              +nav('nav', ['Главная', 'Обо мне', 'Навыки', 'Работы', 'Отзывы', 'Связаться'], 0, '--footer')
+
+              .footer__content
+                .footer__socials
+                  .footer__disc
+                    p Этот сайт я сделал в рамках обучения в Школе онлайн образования Loftschool
+                  +socials('socials', ['telegram', 'whatsapp', 'github'], '--footer')
+
+                .footer__blockquote
+                  .blockquote__text
+                    blockquote Всегда пишите код так, будто сопровождать его будет склонный к насилию психопат, который знает где вы живете
+                  .blockquote__author Martin Golding
+
+        //- +image('content/user.jpg', 'user-pic')
+        //- +icon('link', 'link-class')
+        //- .icon-bg
+
+    include ./templates/entry.pug
