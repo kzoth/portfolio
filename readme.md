@@ -1,29 +1,9 @@
-# Учебный шаблон проекта Portfolio
+# personal-portfolio-project
 
-> Перед установкой зависимостей и запуском проекта убедитесь, что у вас установлена [последняя версия Node.js & NPM](https://nodejs.org/en/download/current/), а так же 
-[последняя версия Yarn](https://yarnpkg.com/ru/docs/install)
+Адаптивный landing page под ширину экрана 320px, 768px, 1200px, 1800px и Vue SPA в админ-панели
 
-##  Чтобы развернуть проект необходимо:
-```sh
-$ git clone git@github.com:loftschool/ls-advanced-portfolio.git
-$ cd ls-advanced-portfolio
-$ yarn
-```
+с применением технологий:
 
-## Скрипты package.json:
+Webpack, Flexbox, Grid, SVG, PCSS, Pug, Vue, AJAX, ES6, Jest
 
-| Скрипт | Назначение |
-| ------ | ------ |
-| dev | Запустит webpack-dev-server с _горячей_ заменой модулей |
-| build | Соберет проект для **production** (проект готов к загрузке на сервер) |
-| reg | Консольная утилита для регистрации. Использовать перед началом работы над **админ-панелью**. |
-
-#### Чтобы запустить скрипт:
-```sh
-$ npm run имя_скрипта
-```
-
-##### Либо:
-```sh
-$ yarn имя_скрипта
-```
+https://kzoth.github.io/portfolio/

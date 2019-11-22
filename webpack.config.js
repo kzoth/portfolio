@@ -8,8 +8,8 @@ const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 
 module.exports = (env, argv) => {
-  const isProductionBuild = argv.mode === "production";
-  const publicPath = '/';
+  const isProductionBuild = argv.mode === "production";`  `
+  const publicPath = '/portfolio/';
 
   const pcss = {
     test: /\.(p|post|)css$/,
