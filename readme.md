@@ -4,6 +4,6 @@
 
 с применением технологий:
 
-Webpack, Flexbox, Grid, SVG, PCSS, Pug, Vue, AJAX, ES6, Jest
+Webpack, Yarn, Flexbox, Grid, SVG, PCSS, Pug, Vue.js, ES6
 
 https://kzoth.github.io/portfolio/
